@@ -24,6 +24,7 @@
             color: #fff;
             text-align: center;
             overflow-x: hidden;
+            user-select: none; /* 🔥 Блокирует копирование текста */
         }
 
         .container {
@@ -57,27 +58,22 @@
             background-color: #1b5e20;
         }
 
-        /* 🔹 Анти-скриншот слой (по умолчанию прозрачный) */
+        /* 🔥 Полная защита от скриншотов */
         .protected {
             position: relative;
+            pointer-events: none; /* Отключает клики на элемент */
         }
 
-        .protected::after {
-            content: "";
-            position: absolute;
+        /* 🔥 Специальный блок для предотвращения записи экрана и "Ножниц" */
+        .anti-screenshot {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9); /* Затемняет экран */
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0);
-            transition: background 0.3s;
-            pointer-events: none;
-            z-index: 10;
-        }
-
-        /* 🔥 Включается только при попытке скриншота */
-        .screenshot-detected::after {
-            background: rgba(0, 0, 0, 0.95) !important;
+            z-index: 9999;
+            display: none;
         }
     </style>
 
@@ -91,22 +87,34 @@
     </script>
 
     <script>
-        /* 🔥 Скрипт для включения защиты ТОЛЬКО при скриншоте */
-        function detectScreenshot() {
-            document.querySelector(".protected").classList.add("screenshot-detected");
+        /* 🔥 Полная блокировка скриншотов (включая Snipping Tool) */
+        function blockScreenshots() {
+            document.querySelector(".anti-screenshot").style.display = "block";
             setTimeout(() => {
-                document.querySelector(".protected").classList.remove("screenshot-detected");
-            }, 5000); // 5 сек и снимаем черный слой
+                document.querySelector(".anti-screenshot").style.display = "none";
+            }, 5000); // Затемнение на 5 секунд
         }
 
+        /* 🔥 Защита от Snipping Tool и переключения вкладок */
         document.addEventListener("visibilitychange", function() {
             if (document.hidden) {
-                detectScreenshot();
+                blockScreenshots();
+            }
+        });
+
+        /* 🔥 Отключаем клавиши Print Screen и Snipping Tool */
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "PrintScreen" || event.key === "F12") {
+                event.preventDefault();
+                alert("Les captures d'écran sont désactivées !");
             }
         });
     </script>
+
 </head>
 <body>
+    <div class="anti-screenshot"></div> <!-- 🔥 Блокирует экран при попытке скриншота -->
+
     <div class="container protected">
         <img src="1.png" alt="Atelier de formation 'L’IA EN ARCHITECTURE'" class="image">
         <a href="https://calendar.app.google/1tNycjLQgYqfDCrc7" target="_blank" class="button">Prendre RDV</a>
