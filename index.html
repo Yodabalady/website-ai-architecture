@@ -6,7 +6,6 @@
 
     <!-- 🔹 Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" href="favicon.png">
 
     <!-- 🔹 Заголовок страницы -->
     <title>Formation IA générative pour architectes</title>
@@ -26,15 +25,18 @@
             text-align: center;
             overflow-x: hidden;
         }
+
         .container {
             position: relative;
             width: 100%;
             height: 100vh;
         }
+
         .image {
             width: 100%;
             height: auto;
         }
+
         .button {
             position: absolute;
             top: 78%;
@@ -50,8 +52,32 @@
             font-weight: 600;
             box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
         }
+
         .button:hover {
             background-color: #1b5e20;
+        }
+
+        /* 🔹 Анти-скриншот слой */
+        .protected {
+            position: relative;
+        }
+
+        .protected::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0);
+            transition: background 0.3s;
+            pointer-events: none;
+        }
+
+        @media screen and (max-width: 3000px) { /* Симуляция скриншота */
+            .protected::after {
+                background: rgba(0, 0, 0, 0.95);
+            }
         }
     </style>
 
@@ -65,7 +91,7 @@
     </script>
 </head>
 <body>
-    <div class="container">
+    <div class="container protected"> <!-- 🔹 Защищенная зона -->
         <img src="1.png" alt="Atelier de formation 'L’IA EN ARCHITECTURE'" class="image">
         <a href="https://calendar.app.google/1tNycjLQgYqfDCrc7" target="_blank" class="button">Prendre RDV</a>
     </div>
