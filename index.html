@@ -58,15 +58,15 @@
             background-color: #1b5e20;
         }
 
-        /* 🔥 Полная защита от скриншотов */
+        /* 🔥 Защита от скриншотов */
         .anti-screenshot {
             position: fixed;
             width: 100vw;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.9); /* Затемнение экрана */
+            background: black; /* Полное затемнение */
             top: 0;
             left: 0;
-            z-index: 9999;
+            z-index: 99999;
             display: none;
         }
     </style>
@@ -81,35 +81,28 @@
     </script>
 
     <script>
-        /* 🔥 Полная блокировка скриншотов */
+        /* 🔥 Блокирует экран сразу при попытке скриншота */
         function blockScreenshots() {
             document.querySelector(".anti-screenshot").style.display = "block";
             setTimeout(() => {
                 document.querySelector(".anti-screenshot").style.display = "none";
-            }, 5000); // Затемнение на 5 секунд
+            }, 3000); // Затемнение на 3 секунды
         }
 
-        /* 🔥 Защита от Snipping Tool и переключения вкладок */
-        document.addEventListener("visibilitychange", function() {
-            if (document.hidden) {
+        /* 🔥 Отслеживаем Print Screen */
+        document.addEventListener("keyup", function(event) {
+            if (event.key === "PrintScreen") {
                 blockScreenshots();
-            }
-        });
-
-        /* 🔥 Отключаем клавиши Print Screen и Snipping Tool */
-        document.addEventListener("keydown", function(event) {
-            if (event.key === "PrintScreen" || event.key === "F12") {
                 event.preventDefault();
-                alert("Les captures d'écran sont désactivées !");
             }
         });
 
-        /* 🔥 Защита от Snipping Tool (каждые 3 секунды проверяет активность окна) */
+        /* 🔥 Защита от Snipping Tool (каждые 2 секунды проверяет активность окна) */
         setInterval(function() {
             if (document.hidden) {
                 blockScreenshots();
             }
-        }, 3000);
+        }, 2000);
     </script>
 
 </head>
