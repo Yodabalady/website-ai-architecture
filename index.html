@@ -57,7 +57,7 @@
             background-color: #1b5e20;
         }
 
-        /* 🔹 Анти-скриншот слой */
+        /* 🔹 Анти-скриншот слой (по умолчанию прозрачный) */
         .protected {
             position: relative;
         }
@@ -72,12 +72,12 @@
             background: rgba(0, 0, 0, 0);
             transition: background 0.3s;
             pointer-events: none;
+            z-index: 10;
         }
 
-        @media screen and (max-width: 3000px) { /* Симуляция скриншота */
-            .protected::after {
-                background: rgba(0, 0, 0, 0.95);
-            }
+        /* 🔥 Включается только при попытке скриншота */
+        .screenshot-detected::after {
+            background: rgba(0, 0, 0, 0.95) !important;
         }
     </style>
 
@@ -89,9 +89,25 @@
         gtag('js', new Date());
         gtag('config', 'G-G7FMRVBB5E');
     </script>
+
+    <script>
+        /* 🔥 Скрипт для включения защиты ТОЛЬКО при скриншоте */
+        function detectScreenshot() {
+            document.querySelector(".protected").classList.add("screenshot-detected");
+            setTimeout(() => {
+                document.querySelector(".protected").classList.remove("screenshot-detected");
+            }, 5000); // 5 сек и снимаем черный слой
+        }
+
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                detectScreenshot();
+            }
+        });
+    </script>
 </head>
 <body>
-    <div class="container protected"> <!-- 🔹 Защищенная зона -->
+    <div class="container protected">
         <img src="1.png" alt="Atelier de formation 'L’IA EN ARCHITECTURE'" class="image">
         <a href="https://calendar.app.google/1tNycjLQgYqfDCrc7" target="_blank" class="button">Prendre RDV</a>
     </div>
