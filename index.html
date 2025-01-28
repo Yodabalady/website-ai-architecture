@@ -24,7 +24,7 @@
             color: #fff;
             text-align: center;
             overflow-x: hidden;
-            user-select: none; /* 🔥 Блокирует копирование текста */
+            user-select: none; /* 🔥 Отключает выделение текста */
         }
 
         .container {
@@ -59,17 +59,11 @@
         }
 
         /* 🔥 Полная защита от скриншотов */
-        .protected {
-            position: relative;
-            pointer-events: none; /* Отключает клики на элемент */
-        }
-
-        /* 🔥 Специальный блок для предотвращения записи экрана и "Ножниц" */
         .anti-screenshot {
             position: fixed;
             width: 100vw;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.9); /* Затемняет экран */
+            background: rgba(0, 0, 0, 0.9); /* Затемнение экрана */
             top: 0;
             left: 0;
             z-index: 9999;
@@ -77,7 +71,7 @@
         }
     </style>
 
-    <!-- Google tag (gtag.js) -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-G7FMRVBB5E"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -87,7 +81,7 @@
     </script>
 
     <script>
-        /* 🔥 Полная блокировка скриншотов (включая Snipping Tool) */
+        /* 🔥 Полная блокировка скриншотов */
         function blockScreenshots() {
             document.querySelector(".anti-screenshot").style.display = "block";
             setTimeout(() => {
@@ -109,13 +103,20 @@
                 alert("Les captures d'écran sont désactivées !");
             }
         });
+
+        /* 🔥 Защита от Snipping Tool (каждые 3 секунды проверяет активность окна) */
+        setInterval(function() {
+            if (document.hidden) {
+                blockScreenshots();
+            }
+        }, 3000);
     </script>
 
 </head>
 <body>
     <div class="anti-screenshot"></div> <!-- 🔥 Блокирует экран при попытке скриншота -->
 
-    <div class="container protected">
+    <div class="container">
         <img src="1.png" alt="Atelier de formation 'L’IA EN ARCHITECTURE'" class="image">
         <a href="https://calendar.app.google/1tNycjLQgYqfDCrc7" target="_blank" class="button">Prendre RDV</a>
     </div>
