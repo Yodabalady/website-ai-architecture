@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI EN ARCHITECTURE</title>
 
     <!-- 🔹 Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-
-    <!-- 🔹 Заголовок страницы -->
-    <title>Formation IA générative pour architectes</title>
+    <link rel="icon" type="image/png" href="favicon.png">
 
     <!-- 🔹 Описание для Google -->
     <meta name="description" content="Découvrez comment l'IA générative transforme l'architecture. Formation IA pour architectes: automatisation, outils innovants et gain de temps. Inscrivez-vous dès maintenant !">
@@ -24,20 +22,16 @@
             color: #fff;
             text-align: center;
             overflow-x: hidden;
-            user-select: none; /* 🔥 Отключает выделение текста */
         }
-
         .container {
             position: relative;
             width: 100%;
             height: 100vh;
         }
-
         .image {
             width: 100%;
             height: auto;
         }
-
         .button {
             position: absolute;
             top: 78%;
@@ -53,25 +47,12 @@
             font-weight: 600;
             box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
         }
-
         .button:hover {
             background-color: #1b5e20;
         }
-
-        /* 🔥 Защита от скриншотов */
-        .anti-screenshot {
-            position: fixed;
-            width: 100vw;
-            height: 100vh;
-            background: black; /* Полное затемнение */
-            top: 0;
-            left: 0;
-            z-index: 99999;
-            display: none;
-        }
     </style>
 
-    <!-- Google Analytics -->
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-G7FMRVBB5E"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -79,36 +60,8 @@
         gtag('js', new Date());
         gtag('config', 'G-G7FMRVBB5E');
     </script>
-
-    <script>
-        /* 🔥 Блокирует экран сразу при попытке скриншота */
-        function blockScreenshots() {
-            document.querySelector(".anti-screenshot").style.display = "block";
-            setTimeout(() => {
-                document.querySelector(".anti-screenshot").style.display = "none";
-            }, 3000); // Затемнение на 3 секунды
-        }
-
-        /* 🔥 Отслеживаем Print Screen */
-        document.addEventListener("keyup", function(event) {
-            if (event.key === "PrintScreen") {
-                blockScreenshots();
-                event.preventDefault();
-            }
-        });
-
-        /* 🔥 Защита от Snipping Tool (каждые 2 секунды проверяет активность окна) */
-        setInterval(function() {
-            if (document.hidden) {
-                blockScreenshots();
-            }
-        }, 2000);
-    </script>
-
 </head>
 <body>
-    <div class="anti-screenshot"></div> <!-- 🔥 Блокирует экран при попытке скриншота -->
-
     <div class="container">
         <img src="1.png" alt="Atelier de formation 'L’IA EN ARCHITECTURE'" class="image">
         <a href="https://calendar.app.google/1tNycjLQgYqfDCrc7" target="_blank" class="button">Prendre RDV</a>
