@@ -1,34 +1,6 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body, html {
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    overflow-x: hidden; /* Убираем горизонтальный скролл */
-}
-
-.container {
-    position: relative;
-    width: 100%;
-    min-height: 100vh; /* Минимальная высота — 100% экрана, но можно скроллить */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.background-image {
-    width: 100%;
-    height: auto;
-}
-
-/* 📌 КНОПКА */
 .button {
     position: absolute;
-    top: 18.8%; /* Оставляем в нужном месте */
+    top: 17.87%; /* Новый топ (727px / 4070px * 100) */
     left: 50%;
     transform: translateX(-50%);
     
