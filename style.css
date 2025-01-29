@@ -25,13 +25,18 @@ body, html {
     height: auto;
 }
 
+/* 📌 КНОПКА */
 .button {
     position: absolute;
     top: 18.8%; /* Оставляем в нужном месте */
     left: 50%;
     transform: translateX(-50%);
-    padding: 15px 30px;
-    font-size: 18px;
+    
+    /* Пропорциональные размеры */
+    width: 18.73vw; /* 18.73% от ширины экрана */
+    height: 2.21vh; /* 2.21% от высоты экрана */
+    
+    /* Стилизация */
     background-color: #2e7d32;
     color: white;
     text-decoration: none;
@@ -39,8 +44,15 @@ body, html {
     font-family: 'Open Sans', Arial, sans-serif;
     font-weight: 600;
     box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+    
+    /* Динамический шрифт */
+    font-size: 1.2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* Анимация при наведении */
 .button:hover {
     background-color: #1b5e20;
 }
