@@ -7,29 +7,27 @@
 body, html {
     width: 100%;
     height: 100%;
-    overflow: hidden; /* Убираем скролл */
     background-color: black;
+    overflow-x: hidden; /* Убираем горизонтальный скролл */
 }
 
 .container {
     position: relative;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh; /* Минимальная высота — 100% экрана, но можно скроллить */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
 
 .background-image {
-    position: absolute;
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* Заполняет экран без искажений */
+    height: auto;
 }
 
 .button {
     position: absolute;
-    top: 18.8%; /* Подкорректировал по пикселям */
+    top: 18.8%; /* Оставляем в нужном месте */
     left: 50%;
     transform: translateX(-50%);
     padding: 15px 30px;
