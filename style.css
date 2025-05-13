@@ -342,4 +342,105 @@ body, html {
   margin-bottom: 30px;
 }
 
+/* Секция 5 */
+.contact-section {
+  display: flex;
+  height: 1080px;
+  background-color: #202020;
+}
+
+.contact-left {
+  width: 50%;
+  display: flex;
+  align-items: center;     /* Центровка по вертикали */
+  justify-content: flex-end; /* Прижать к правому краю */
+  padding-right: 0; /* убираем отступы */
+}
+.contact-left img {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  opacity: 0.5;
+}
+
+
+.contact-right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;    /* Центровка по вертикали */
+  align-items: flex-start;    /* Выравнивание всего текста по левому краю */
+  color: white;
+  padding: 0 220px;           /* Добавим отступы для визуального центрирования */
+  box-sizing: border-box;
+  margin-top: -70px;
+}
+
+.contact-title {
+  font-family: 'Impact', sans-serif;
+  font-size: 52pt;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.contact-line {
+  width: 90%;
+  border: 0.5px solid white;
+  opacity: 0.3;
+  margin: 50px 0 70px 0;   /* ↑ больше отступов сверху и снизу */
+}
+
+
+.contact-subtitle {
+  font-size: 30pt;
+  font-weight: 900;
+  font-family: 'Roboto Black', sans-serif;
+  margin-bottom: 10px;
+}
+
+.contact-email {
+  font-size: 21pt;
+  font-weight: 100;
+  font-family: 'Roboto Thin', sans-serif;
+  opacity: 0.85;
+  margin-bottom: 40px;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* увеличенный отступ между иконками */
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icons img {
+  height: 64px;
+  width: auto;               /* сохраняет пропорции */
+  object-fit: contain;
+  opacity: 0.60;
+  transition: opacity 0.3s ease;
+}
+
+.social-icons img:hover {
+  opacity: 1;
+}
+
+.social-icons img[alt="Instagram"] {
+  height: 76px;
+}
+
+.social-icons img[alt="LinkedIn"] {
+  height: 52px;
+}
+
+.social-icons img[alt="YouTube"] {
+  height: 64px; /* или оставь как есть, если уже оптимально */
+}
+
+
 
