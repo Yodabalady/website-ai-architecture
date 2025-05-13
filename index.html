@@ -1,24 +1,218 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI EN ARCHITECTURE</title>
-
-    <!-- 🔹 Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-
-    <!-- 🔹 Описание для Google -->
-    <meta name="description" content="Découvrez comment l'IA générative transforme l'architecture. Formation IA pour architectes: automatisation, outils innovants et gain de temps. Inscrivez-vous dès maintenant !">
-
-    <!-- Подключение CSS -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI en Architecture</title>
+  <meta name="description" content="Découvrez comment l'IA générative transforme l'architecture. Formation IA pour architectes: automatisation, outils innovants et gain de temps. Inscrivez-vous dès maintenant !" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <script>
+    function scaleSite() {
+      const scale = window.innerWidth / 1920;
+      const root = document.getElementById('scaler');
+      root.style.transform = `scale(${scale})`;
+      root.style.transformOrigin = 'top left';
+    }
+    window.addEventListener('resize', scaleSite);
+    window.addEventListener('DOMContentLoaded', scaleSite);
+  </script>
 </head>
 <body>
-    <div class="container">
-        <img src="1.png" alt="Atelier de formation 'L’IA EN ARCHITECTURE'" class="background-image">
-        <a href="https://calendar.app.google/1tNycjLQgYqfDCrc7" target="_blank" class="button">Prendre RDV</a>
+  <div id="scaler">
+
+    <!-- Секция 1 -->
+    <section class="hero" id="section1">
+      <img src="images/logo.svg" alt="Logo" class="logo" />
+
+      <nav class="navbar">
+        <ul>
+          <li><a href="#section2">PROGRAMME</a></li>
+          <li><a href="#section3">ARCHITECTURE</a></li>
+          <li><a href="#section4">À PROPOS</a></li>
+          <li><a href="#section5">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <div class="content">
+        <h1 class="title">Atelier de formation</h1>
+        <p class="subtitle">L’IA, le luxe de travailler intelligemment</p>
+        <div class="button-wrapper">
+          <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0kO062BKbwD7c_7_RzEw2NSIAd-bkwgK1ARQPijTlA-wt2ogutd2Kx2brbkm-TzTdP5LGhdx9C"
+             class="cta-button"
+             target="_blank">Prendre RDV</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция 2 -->
+    <section class="section-programme" id="section2">
+      <div class="programme-header">
+        <h2><span>PROGRAMME</span><span>|</span><span>durée : 2 heures</span></h2>
+      </div>
+      <div class="programme-columns">
+        <div class="programme-column">
+          <h3 class="module-title">MODULE 1</h3>
+          <hr class="module-line" />
+          <p class="module-objective">Objectif : Analyser les tendances de l’IA et définir votre propre stratégie d’évolution face à l’IA</p>
+          <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+          <hr class="module-line" />
+          <ul class="module-description">
+            <li>Introduction. En quoi cette formation est unique</li>
+            <li>Évolution de l’IA et dynamiques globales du secteur architectural</li>
+            <li>Classification et benchmarking de l’IA appliquée à l’architecture</li>
+          </ul>
+        </div>
+
+        <div class="programme-column">
+          <h3 class="module-title">MODULE 2</h3>
+          <hr class="module-line" />
+          <p class="module-objective">Objectif : Réinventer la conception architecturale et accroître l’efficacité du travail de l’architecte en intégrant les pratiques éprouvées de ChatGPT à chaque étape du projet.</p>
+          <hr class="module-line" />
+          <ul class="module-description">
+            <li>Définitions clés et structure de l'IA</li>
+            <li>Emploi de ChatGPT à toutes les étapes de la conception</li>
+            <li>Limites dans l'utilisation de ChatGPT : Difficultés, pièges et solutions possibles</li>
+            <li>Confidentialité des données personnelles</li>
+          </ul>
+        </div>
+
+        <div class="programme-column">
+          <h3 class="module-title">MODULE 3</h3>
+          <hr class="module-line" />
+          <p class="module-objective">Objectif : Perfectionner l’art du prompt engineering pour dépasser les limites du rendu classique et renforcer votre créativité</p>
+          <p>&nbsp;</p><p>&nbsp;</p>
+          <hr class="module-line" />
+          <ul class="module-description">
+            <li>De la recherche d’une idée originale au rendu réaliste en un temps record</li>
+            <li>Ingénierie des prompts : structure et paramètres</li>
+            <li>Limites, pièges et solutions possibles</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+<!-- Секция 3 -->
+<section class="slider-section" id="section3">
+  <div class="slider-container">
+    <div class="slider">
+      <div class="slide active">
+        <img src="images/project1.jpg" alt="L’École de Mode – Italie, Côme." />
+        <div class="caption">L’École de Mode – Italie, Côme.</div>
+      </div>
+      <div class="slide">
+        <img src="images/project2.jpg" alt="Villa G. – Maroc, Marrakech." />
+        <div class="caption">Villa G. – Maroc, Marrakech.</div>
+      </div>
+      <div class="slide">
+        <img src="images/project3.jpg" alt="Villa G. – Maroc, Marrakech." />
+        <div class="caption">Villa G. – Maroc, Marrakech.</div>
+      </div>
+      <div class="slide">
+        <img src="images/project4.jpg" alt="Bamboo Towers - Vietnam, Hanoi." />
+        <div class="caption">Bamboo Towers - Vietnam, Hanoi.</div>
+      </div>
+      <div class="slide">
+        <img src="images/project5.jpg" alt="L’École de Mode – Italie, Côme." />
+        <div class="caption">L’École de Mode – Italie, Côme.</div>
+      </div>
     </div>
+
+    <div class="nav prev" onclick="prevSlide()">
+      <svg width="78" height="10" viewBox="0 0 78 10" xmlns="http://www.w3.org/2000/svg">
+        <line x1="0" y1="5" x2="78" y2="5" stroke="white" stroke-width="2" />
+      </svg>
+    </div>
+    <div class="nav next" onclick="nextSlide()">
+      <svg width="78" height="10" viewBox="0 0 78 10" xmlns="http://www.w3.org/2000/svg">
+        <line x1="0" y1="5" x2="78" y2="5" stroke="white" stroke-width="2" />
+      </svg>
+    </div>
+
+    <div class="dots">
+      <span class="dot active" onclick="currentSlide(0)"></span>
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+    </div>
+  </div>
+</section>
+
+<!-- Секция 4 -->
+<section id="section4" class="about-section">
+  <div class="about-container">
+    <div class="about-left">
+      <h2 class="about-title">À propos:<br />de l’expérience<br />à l’innovation</h2>
+    </div>
+    <div class="about-right">
+      <hr class="about-line" />
+      <h3 class="about-subtitle">À PROPOS DE MOI</h3>
+      <p class="about-text">
+        Faire ce que personne n’a encore fait – voilà ma force.
+      </p>
+      <p class="about-text">
+        Architecte-ingénieure diplômée, j’ai réalisé plus de 400 000 m² de projets, parmi lesquels des réalisations ambitieuses telles qu’un gratte-ciel de 50 étages et un hôpital de 9 étages avec 25 salles d’opération. Dès 2008, j’ai introduit des technologies avancées comme la domotique et les parkings automatisés. Ma passion pour les mathématiques, l’architecture bionique et paramétrique m’a naturellement conduite vers les systèmes d’intelligence artificielle. Titulaire d’un MBA en administration des affaires et en stratégie d’entreprise, j’allie aujourd’hui expertise technique et vision business.
+      </p>
+      <h3 class="about-subtitle">MISSION</h3>
+      <p class="about-text">
+        L’IA ne remplace pas les architectes. Elle amplifie leur créativité. Ma mission est de renforcer le potentiel créatif, de stimuler une culture de l’innovation et de faire évoluer la pratique architecturale vers un niveau supérieur.
+      </p>
+      <h3 class="about-subtitle">OBJECTIFS</h3>
+      <p class="about-text">
+        Dès la fin de la formation, améliorez votre rentabilité grâce à:<br />
+        ✓ Réduction des coûts et amélioration de l’efficacité<br />
+        ✓ Maximisation des revenus existants et accélération des tests de nouvelles idées<br />
+        ✓ Développement de nouveaux marchés et opportunités
+      </p>
+    </div>
+  </div>
+</section>
+
+
+  </div> <!-- #scaler -->
+
+<script>
+    let slideIndex = 0;
+    let slides, dots, interval;
+
+    function showSlide(index) {
+      slides = document.querySelectorAll('.slide');
+      dots = document.querySelectorAll('.dot');
+      slides.forEach((s, i) => {
+        s.classList.remove('active');
+        s.style.display = 'none';
+        dots[i].classList.remove('active');
+      });
+      slides[index].classList.add('active');
+      slides[index].style.display = 'block';
+      dots[index].classList.add('active');
+    }
+
+    function nextSlide() {
+      slideIndex = (slideIndex + 1) % 5;
+      showSlide(slideIndex);
+    }
+
+    function prevSlide() {
+      slideIndex = (slideIndex - 1 + 5) % 5;
+      showSlide(slideIndex);
+    }
+
+    function currentSlide(i) {
+      slideIndex = i;
+      showSlide(slideIndex);
+    }
+
+    function startAutoSlide() {
+      interval = setInterval(nextSlide, 4000);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      showSlide(slideIndex);
+      startAutoSlide();
+    });
+  </script>
 </body>
 </html>
