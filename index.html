@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI en Architecture</title><meta name="description" content="Formation intensive en IA pour architectes : boostez créativité et efficacité avec GPT, Midjourney, Kling et l’IA générative. Inscrivez-vous !" />
+  <title>AI en Architecture</title>
+  <meta name="description" content="Découvrez comment l'IA générative transforme l'architecture. Formation IA pour architectes: automatisation, outils innovants et gain de temps. Inscrivez-vous dès maintenant !" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/png" href="favicon.png" />
@@ -30,7 +31,8 @@
           <li><a href="#section2">PROGRAMME</a></li>
           <li><a href="#section3">ARCHITECTURE</a></li>
           <li><a href="#section4">À PROPOS</a></li>
-          <li><a href="#section5">CONTACT</a></li>
+          <li><a href="#section5">FAQ</a></li>
+          <li><a href="#section6">CONTACT</a></li>
         </ul>
       </nav>
 
@@ -48,7 +50,7 @@
     <!-- Секция 2 -->
     <section class="section-programme" id="section2">
       <div class="programme-header">
-        <h2><span>PROGRAMME</span><span>|</span><span>durée : 3 heures</span></h2>
+        <h2><span>PROGRAMME</span><span>|</span><span>durée : 2 heures</span></h2>
       </div>
       <div class="programme-columns">
         <div class="programme-column">
@@ -169,8 +171,45 @@
   </div>
 </section>
 
-<!-- Секция 5 -->
-<section class="contact-section" id="section5">
+<!-- Секция FAQ -->
+<section class="faq-section" id="section5">
+  <div class="faq-container">
+    <div class="faq-header">
+    <h2 class="faq-title">
+    Parce que  chaque doute<br>
+    mérite une réponse.
+    <span class="faq-subtitle">Et chaque réponse ouvre une possibilité.</span>
+  </h2>
+</div>
+    <div class="faq-slider">
+      <div class="faq-slide">
+        <h4 class="faq-question">QUEL EST LE PRIX DE LA FORMATION ? ÉLIGIBLE AU FINANCEMENT QUALIOPI / OPCO ?</h4>
+        <p class="faq-answer">Le tarif est établi sur mesure, en fonction de plusieurs critères : format en ligne ou en présentiel, nombre de participants, besoins spécifiques liés à votre pratique ou à votre structure. Un formulaire de pré-inscription permet d’analyser votre demande et de vous proposer une offre adaptée. À ce jour, la formation n’est pas encore éligible au financement via OPCO ou Qualiopi, mais nous travaillons activement avec des partenaires pour rendre cela possible très prochainement.</p>
+      </div>
+      <div class="faq-slide">
+        <h4 class="faq-question">J’AI DÉJÀ SUIVI UNE FORMATION SUR L’IA, MAIS JE N’AI RIEN MIS EN PRATIQUE. QU’EST-CE QUI CHANGE AVEC VOTRE COURS ?</h4>
+        <p class="faq-answer">Vous n’êtes pas seul. Beaucoup de professionnels suivent des formations sur l’IA… puis reprennent leur quotidien sans rien changer. Ce n’est pas un problème de motivation — c’est souvent un manque de lien concret avec la pratique métier. Ce qui différencie cette formation : nous ne débattons pas de l’avenir de la profession, ni des usages administratifs de l’IA : nous travaillons uniquement sur l’application de l’IA à la conception architecturale. Le contenu est conçu pour s’adapter à tous les contextes sans lien avec un logiciel CAD, un type de projet (logt, ERP, EQT...) ou une phase précise (ESQ, PC, DCE).</p>
+      </div>
+     <div class="faq-slide">
+       <h4 class="faq-question">POURQUOI LA FORMATION NE DURE QUE 3 HEURES ? CE N’EST PAS TROP COURT ?</h3>
+       <p class="faq-answer">C’est un choix assumé : un format intensif et ciblé. Je sais que votre temps est précieux — et celui de vos équipes aussi. Chaque minute est optimisée : j’ai sélectionné uniquement les informations essentielles, structuré les idées de manière claire, et illustré le tout par des exemples concrets, des données clés et une iconographie lisible. Et surtout : nous ne clôturons pas la session tant qu’une réponse claire n’a pas été apportée à chaque question.</p>
+      </div>
+      <div class="faq-slide">
+        <h4 class="faq-question">C’EST UNE FORMATION UNIQUEMENT AXÉE SUR LA GÉNÉRATION D’IMAGES “JOLIES” ?</h3>
+        <p class="faq-answer">Non, pas du tout. Ce n’est pas un atelier d’illustration. Je tiens profondément au rôle de l’architecte dans la création artistique et conceptuelle d’un projet. L’IA ne remplace pas cette vision — elle l’accompagne. La génération d’images occupe environ 20 % du contenu, en tant qu’outil d’inspiration et de dialogue. Le reste du temps est consacré à des usages bien plus stratégiques.</p>
+      </div>
+      <!-- Добавьте дополнительные слайды здесь -->
+    </div>
+    <!-- Навигация -->
+    <div class="faq-nav">
+      <button class="faq-prev"></button>
+      <button class="faq-next"></button>
+    </div>
+  </div>
+</section>
+
+<!-- Секция 6 -->
+<section class="contact-section" id="section6">
   <div class="contact-left">
     <img src="images/contact.jpg" alt="Contact visuel" />
   </div>
@@ -198,6 +237,8 @@
 </div>
     </div>
   </div>
+<p class="copyright">© 2025 AI en Architecture. Tous droits réservés.</p>
+
 </section>
 
   </div> <!-- #scaler -->
@@ -243,6 +284,29 @@
       startAutoSlide();
     });
   </script>
+
+<script>
+  const faqSlides = document.querySelectorAll('.faq-slide');
+  let faqIndex = 0;
+
+  function showFaqSlide(index) {
+    faqSlides.forEach((slide, i) => {
+      slide.style.display = (i === index || i === (index + 1) % faqSlides.length) ? 'block' : 'none';
+    });
+  }
+
+  document.querySelector('.faq-prev').addEventListener('click', () => {
+    faqIndex = (faqIndex - 2 + faqSlides.length) % faqSlides.length;
+    showFaqSlide(faqIndex);
+  });
+
+  document.querySelector('.faq-next').addEventListener('click', () => {
+    faqIndex = (faqIndex + 2) % faqSlides.length;
+    showFaqSlide(faqIndex);
+  });
+
+  showFaqSlide(faqIndex);
+</script>
+
 </body>
 </html>
-
