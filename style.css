@@ -67,7 +67,7 @@ body, html {
 }
 .navbar ul {
   display: flex;
-  gap: 60px;
+  gap: 50px;
   list-style: none;
 }
 .navbar a {
@@ -342,27 +342,40 @@ body, html {
   margin-bottom: 30px;
 }
 
-/* Секция 5 */
+/* Секция 6 */
 .contact-section {
   display: flex;
   height: 1080px;
-  background-color: #202020;
+  background-color: #113625;
 }
 
 .contact-left {
+  position: relative;  
   width: 50%;
   display: flex;
   align-items: center;     /* Центровка по вертикали */
   justify-content: flex-end; /* Прижать к правому краю */
   padding-right: 0; /* убираем отступы */
+  overflow: hidden;
+}
+
+.contact-left::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(32, 32, 32, 0.6);  /* Полупрозрачная маска */
+  pointer-events: none;
+  z-index: 2;
 }
 .contact-left img {
   height: 100%;
   width: auto;
   object-fit: cover;
-  opacity: 0.5;
+  filter: grayscale(20%);  /* 20% оттенок серого */
+  opacity: 1;
+  display: block;
+  z-index: 1; /* Убедимся, что картинка под маской */
 }
-
 
 .contact-right {
   width: 50%;
@@ -442,5 +455,129 @@ body, html {
   height: 64px; /* или оставь как есть, если уже оптимально */
 }
 
+/* Секция FAQ */
+.faq-section {
+  position: relative;
+  background-color: #202020;
+  height: 1080px;
+  width: 1920px;
+  padding:  100px 220px 100px 220px;  /* Верх-право-низ-лево */
+  box-sizing: border-box;
+  overflow: hidden;
+}
 
+/* Фон-изображение и фильтр */
+.faq-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('images/Background-24.jpg') center/cover no-repeat;
+  filter: grayscale(70%);
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.faq-header {
+  position: relative;
+  margin-bottom: 60px;
+  z-index: 2;
+}
+
+.faq-title {
+  font-family: 'Impact', sans-serif;
+  font-size: 52pt;
+  color: white;
+  text-align: left;
+}
+
+.faq-subtitle {
+  font-family: 'LovelaceMediumItalic', serif;
+  font-size: 30pt;
+  color: white;
+  text-align: right;
+}
+
+.faq-slider {
+  display: flex;
+  gap: 310px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-left: 20px;    /* Левое поле меньше */
+  padding-right: 150px;  /* Правое поле меньше */
+}
+
+.faq-slide {
+  flex: 0 0 41%;
+  scroll-snap-align: start;
+  position: relative;
+  z-index: 2;
+}
+
+.faq-question {
+  font-family: 'Impact', sans-serif;
+  font-size: 22pt;
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  text-align: justify;
+  width: 100%;
+  line-height: 1.5;
+}
+
+.faq-answer {
+  font-family: 'Roboto Thin', sans-serif;
+  font-size: 18pt;
+  color: white;
+  width: 100%;
+  text-align: justify;
+  line-height: 1.7;
+}
+
+.faq-nav {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transform: translateY(-50%);
+  padding-left: 60px;
+  padding-right: 150px;
+  pointer-events: none; /* Разрешаем клики только на кнопках */
+  z-index: 10;
+}
+
+.faq-nav button {
+  background: white;
+  border: none;
+  width: 80px; /* Увеличили длину черточек */
+  height: 2px;
+  pointer-events: auto; /* Включаем клики для кнопок */
+  opacity: 0.7;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
+
+.faq-nav button:hover {
+  opacity: 1;
+}
+
+
+/* Убираем странные полоски */
+.faq-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* Текст авторских прав */
+.copyright {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  font-family: 'Roboto Thin', sans-serif;
+  font-size: 21px;
+  color: white;
+  opacity: 0.7;
+}
 
