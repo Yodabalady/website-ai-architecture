@@ -164,6 +164,23 @@
         <img src="images/project5.jpg" alt="L’École de Mode – Italie, Côme." />
         <div class="caption">L’École de Mode – Italie, Côme.</div>
       </div>
+      <div class="slide">
+  <img src="images/project6.jpg" alt="Résidence Privée – France, Provence." />
+  <div class="caption">Résidence Privée – France, Provence.</div>
+</div>
+<div class="slide">
+  <img src="images/project7.jpg" alt="Résidence Privée – France, Provence." />
+  <div class="caption">Résidence Privée – France, Provence.</div>
+</div>
+<div class="slide">
+  <img src="images/project8.jpg" alt="Bamboo Towers - Vietnam, Hanoi." />
+  <div class="caption">Bamboo Towers - Vietnam, Hanoi.</div>
+</div>
+<div class="slide">
+  <img src="images/project9.jpg" alt="Work & Lodge – France, Megève" />
+  <div class="caption">Work & Lodge – France, Megève</div>
+</div>
+
     </div>
 
     <div class="nav prev" onclick="prevSlide()">
@@ -178,12 +195,17 @@
     </div>
 
     <div class="dots">
-      <span class="dot active" onclick="currentSlide(0)"></span>
-      <span class="dot" onclick="currentSlide(1)"></span>
-      <span class="dot" onclick="currentSlide(2)"></span>
-      <span class="dot" onclick="currentSlide(3)"></span>
-      <span class="dot" onclick="currentSlide(4)"></span>
-    </div>
+  <span class="dot active" onclick="currentSlide(0)"></span>
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+</div>
+
   </div>
 </section>
 
@@ -290,46 +312,49 @@
   </div> <!-- #scaler -->
 
 <script>
-    let slideIndex = 0;
-    let slides, dots, interval;
+  let slideIndex = 0;
+  let slides = document.querySelectorAll('.slide');
+  let dots = document.querySelectorAll('.dot');
+  let interval;
 
-    function showSlide(index) {
-      slides = document.querySelectorAll('.slide');
-      dots = document.querySelectorAll('.dot');
-      slides.forEach((s, i) => {
-        s.classList.remove('active');
-        s.style.display = 'none';
-        dots[i].classList.remove('active');
-      });
-      slides[index].classList.add('active');
-      slides[index].style.display = 'block';
-      dots[index].classList.add('active');
-    }
-
-    function nextSlide() {
-      slideIndex = (slideIndex + 1) % 5;
-      showSlide(slideIndex);
-    }
-
-    function prevSlide() {
-      slideIndex = (slideIndex - 1 + 5) % 5;
-      showSlide(slideIndex);
-    }
-
-    function currentSlide(i) {
-      slideIndex = i;
-      showSlide(slideIndex);
-    }
-
-    function startAutoSlide() {
-      interval = setInterval(nextSlide, 4000);
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      showSlide(slideIndex);
-      startAutoSlide();
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active');
+      slide.style.display = 'none';
+      if (dots[i]) dots[i].classList.remove('active');
     });
-  </script>
+
+    slides[index].classList.add('active');
+    slides[index].style.display = 'block';
+    if (dots[index]) dots[index].classList.add('active');
+  }
+
+  function nextSlide() {
+    slideIndex = (slideIndex + 1) % slides.length;
+    showSlide(slideIndex);
+  }
+
+  function prevSlide() {
+    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+    showSlide(slideIndex);
+  }
+
+  function currentSlide(i) {
+    slideIndex = i;
+    showSlide(slideIndex);
+  }
+
+  function startAutoSlide() {
+    interval = setInterval(nextSlide, 4000);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    slides = document.querySelectorAll('.slide');
+    dots = document.querySelectorAll('.dot');
+    showSlide(slideIndex);
+    startAutoSlide();
+  });
+</script>
 
 <script>
   const faqSlides = document.querySelectorAll('.faq-slide');
