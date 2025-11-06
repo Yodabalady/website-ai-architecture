@@ -383,6 +383,36 @@
 
   showFaqSlide(faqIndex);
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const faqSection = document.querySelector('.faq-section');
+
+    // Создаём элемент <video>
+    const video = document.createElement('video');
+    video.src = 'videos/faq-bg.mp4';
+    video.muted = true;
+    video.playsInline = true;
+    video.className = 'faq-bg-video';
+    faqSection.prepend(video); // Вставляем до текста
+
+    function playVideoCycle() {
+      video.currentTime = 0;
+      video.play();
+      video.style.opacity = 1;
+
+      setTimeout(() => {
+        video.pause();
+        video.style.opacity = 0;
+      }, 5000); // Показываем видео 5 секунд
+    }
+
+    // Первая пауза перед стартом
+    setTimeout(() => {
+      playVideoCycle(); // Первый запуск
+      setInterval(playVideoCycle, 10000); // Далее каждые 10 сек
+    }, 7000); // Пауза 7 секунд после загрузки
+  });
+</script>
 
 </body>
 </html>
