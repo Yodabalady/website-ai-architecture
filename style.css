@@ -613,3 +613,8 @@ body, html {
   position: relative;
   z-index: 1;
 }
+.phone-line {
+  display: inline-block;
+  margin-top: 10px; /* можно 8px или 12px — подбирается визуально */
+}
+
