@@ -177,39 +177,53 @@
   </section>
 
   <script>
-    const video = document.getElementById('greetingsVideo');
-    const playButton = document.getElementById('playButton');
-    const soundButton = document.getElementById('soundButton');
-    const fullscreenButton = document.getElementById('fullscreenButton');
-    let isMuted = false;
+  const video = document.getElementById('greetingsVideo');
+  const playButton = document.getElementById('playButton');
+  const soundButton = document.getElementById('soundButton');
+  const fullscreenButton = document.getElementById('fullscreenButton');
+  let isMuted = false;
 
-    playButton.addEventListener('click', () => {
-      video.play();
+  // При клике на кнопку LIRE — воспроизводим и сразу включаем fullscreen
+  playButton.addEventListener('click', async () => {
+    try {
+      await video.play();
+      if (!document.fullscreenElement) {
+        await video.requestFullscreen();
+      }
       playButton.style.opacity = '0';
       setTimeout(() => playButton.style.display = 'none', 400);
-    });
+    } catch (err) {
+      console.error('Erreur de lecture:', err);
+    }
+  });
 
-    soundButton.addEventListener('click', () => {
-      isMuted = !isMuted;
-      video.muted = isMuted;
-      soundButton.textContent = isMuted ? '🔇' : '🔈';
-    });
+  // Переключение звука
+  soundButton.addEventListener('click', () => {
+    isMuted = !isMuted;
+    video.muted = isMuted;
+    soundButton.textContent = isMuted ? '🔇' : '🔈';
+  });
 
-    fullscreenButton.addEventListener('click', () => {
-      if (!document.fullscreenElement) {
-        video.requestFullscreen().catch(err => console.error(err));
-      } else {
-        document.exitFullscreen();
-      }
-    });
+  // Полноэкранный режим вручную (кнопка ⛶)
+  fullscreenButton.addEventListener('click', () => {
+    if (!document.fullscreenElement) {
+      video.requestFullscreen().catch(err => console.error(err));
+    } else {
+      document.exitFullscreen();
+    }
+  });
 
-    video.addEventListener('ended', () => {
-      playButton.style.display = 'block';
-      playButton.style.opacity = '0';
-      setTimeout(() => playButton.style.transition = 'opacity 1s ease', 100);
-      setTimeout(() => playButton.style.opacity = '1', 300);
-    });
-  </script>
+  // После завершения — выйти из fullscreen и показать кнопку LIRE
+  video.addEventListener('ended', async () => {
+    if (document.fullscreenElement) {
+      await document.exitFullscreen();
+    }
+    playButton.style.display = 'block';
+    playButton.style.opacity = '0';
+    setTimeout(() => playButton.style.transition = 'opacity 1s ease', 100);
+    setTimeout(() => playButton.style.opacity = '1', 300);
+  });
+</script>
 
 </body>
 </html>
